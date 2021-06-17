@@ -15,12 +15,15 @@
 <!--        <tr th:each="field : ${job}" th:text="${field}">-->
 <!--        </tr>-->
 <!--    </table>-->
-    <table class="job-listing">
+    <table class="job-listing" th:fragment="job-table">
         <tr th:each="job : ${jobs}">
-            <td>
-                <ul th:each="field : ${job}">
-                    <li th:text="${field}"></li>
-                </ul>
+            <td th:each="field : ${job}">
+                    <p th:text="'ID: ' + ${job.id}"></p>
+                    <p th:text="'Name: ' + ${job.name}"></p>
+                    <p th:text="'Employer: ' + ${job.employer}"></p>
+                    <p th:text="'Location: ' + ${job.location}"></p>
+                    <p th:text="'Position Type: ' + ${job.positionType}"></p>
+                    <p th:text="'Skill: ' + ${job.coreCompetency}"></p>
             </td>
         </tr>
     </table>
